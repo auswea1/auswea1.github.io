@@ -1,0 +1,64 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            background-color: black;
+            color: green;
+            border: 2px solid green;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: green;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email</h1>
+Email: austinweaver1@duck.com
+
+    <button onclick="sendEmail()">Send Email</button>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function sendEmail() {
+        const email = 'austinweaver1@duck.com';
+        const subject = 'Hello';
+        const body = 'I would like to get in touch.';
+        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        try {
+            window.location.href = mailtoLink;
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert('There was an error trying to send the email. Please try again later.');
+        }
+    }
+</script>
+
+</body>
+</html>
