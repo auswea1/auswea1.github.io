@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            background-color: black;
+            color: green;
+            border: 2px solid green;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: green;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phone number</h1>
+
+
+<div style="text-align: center;">
+<button onclick="sendMessage()">Click to text</button>
+
+</body>
+<script>
+        function sendMessage() {
+            const phoneNumber = "(629) 298-8536";
+            const message = "Hey this is:";
+            const url = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+
+            try {
+                // Attempt to open the SMS application
+                window.location.href = url;
+            } catch (error) {
+                console.error("Error sending message:", error);
+                alert("An error occurred while trying to send the message. Please try again.");
+            }
+        }
+    </script>
+</html>
